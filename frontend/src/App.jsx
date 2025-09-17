@@ -6,17 +6,19 @@ import Group from "./pages/Group";
 import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
 import StartUp from "./pages/Startup";
+import Report from "./pages/Report";
 
-export default function App(){
+export default function App() {
   return (
-        <Routes>
-          <Route path="/" element={<StartUp/>} />
-          <Route path="/landing" element={<Landing/>} />
-          <Route path="/groups" element={<Groups/>} />
-          <Route path="/group/:id" element={<Group/>} />
-          <Route path="/login" element={<LogIn/>} />
-          <Route path="/signup" element={<SignUp/>} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+    <Routes>
+      <Route path="/" element={<StartUp />} />
+      <Route path="/landing" element={<Landing />} />
+      <Route path="/groups" element={<Groups />} />
+      <Route path="/group/:id" element={<Group />} />
+      <Route path="/login" element={<LogIn />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/report" element={<Report />} />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 }
