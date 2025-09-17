@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Logo from '../images/Logo.png';
-
+import { Link } from "react-router-dom";
+import Logo from "../images/Logo.png";
 
 function Startup() {
   const [expenses, setExpenses] = useState([]);
@@ -26,7 +26,7 @@ function Startup() {
       form.paidBy &&
       form.sharedWith
     ) {
-      const sharedUsers = form.sharedWith.split(",").map(u => u.trim());
+      const sharedUsers = form.sharedWith.split(",").map((u) => u.trim());
       setExpenses([
         ...expenses,
         { ...form, amount: parseFloat(form.amount), sharedWith: sharedUsers },
@@ -65,33 +65,37 @@ function Startup() {
       {/* Navbar */}
       <nav className="flex justify-between items-center p-0.5 bg-white shadow-md">
         <div className="flex items-center">
-          <img
-			src={Logo}
-			alt="QuickCash Logo"
-			className="w-20 h-20 mr-3"
-			/>
+          <img src={Logo} alt="QuickCash Logo" className="w-20 h-20 mr-3" />
           <h1 className="text-3xl font-bold text-gray-800">QuickCash</h1>
         </div>
         <div className="space-x-4">
-		<button className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition duration-200">
+          <Link
+            to="/login"
+            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition duration-200"
+          >
             Sign In
-          </button>
-          <button className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded transition duration-200">
-            Sign Up
-          </button>
+          </Link>
+          <Link
+            to="/login"
+            className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded transition duration-200"
+          >
+            Sign In
+          </Link>
+
+          {/* "px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded transition duration-200" */}
         </div>
       </nav>
 
       {/* Main Content */}
       <div className="flex flex-col md:flex-row justify-center items-start p-6 md:space-x-8 space-y-6 md:space-y-0">
-
         {/* Expense Form */}
         <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-md">
           <h2 className="text-xl font-semibold mb-4 text-gray-800">
             Add Group Expense
           </h2>
           <p className="text-gray-600 mb-4">
-            Enter the expense details. Use comma-separated names for shared users.
+            Enter the expense details. Use comma-separated names for shared
+            users.
           </p>
 
           <input
@@ -152,14 +156,20 @@ function Startup() {
             <ul className="space-y-2 max-h-64 overflow-y-auto">
               {expenses.map((e, idx) => (
                 <li key={idx} className="flex justify-between border-b pb-1">
-                  <span>{e.name} ({e.category})</span>
-                  <span>${e.amount.toFixed(2)} paid by {e.paidBy}</span>
+                  <span>
+                    {e.name} ({e.category})
+                  </span>
+                  <span>
+                    ${e.amount.toFixed(2)} paid by {e.paidBy}
+                  </span>
                 </li>
               ))}
             </ul>
           )}
 
-          <h2 className="text-xl font-semibold mt-6 mb-2 text-gray-800">Balances</h2>
+          <h2 className="text-xl font-semibold mt-6 mb-2 text-gray-800">
+            Balances
+          </h2>
           {Object.keys(balances).length === 0 ? (
             <p className="text-gray-600">No balances yet.</p>
           ) : (
@@ -168,21 +178,22 @@ function Startup() {
                 <li
                   key={idx}
                   className={`flex justify-between p-2 rounded ${
-                    balance >= 0 ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                    balance >= 0
+                      ? "bg-green-100 text-green-800"
+                      : "bg-red-100 text-red-800"
                   } mb-2`}
                 >
                   <span>{person}</span>
                   <span>
-					{balance >= 0 
-						? `Gets $${balance.toFixed(2)}` 
-						: `Owes $${Math.abs(balance).toFixed(2)}`}
-					</span>
+                    {balance >= 0
+                      ? `Gets $${balance.toFixed(2)}`
+                      : `Owes $${Math.abs(balance).toFixed(2)}`}
+                  </span>
                 </li>
               ))}
             </ul>
           )}
         </div>
-
       </div>
     </div>
   );
