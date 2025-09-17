@@ -61,28 +61,30 @@ function Startup() {
   const balances = calculateBalances();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-[#050934] to-[#106155]">
       {/* Navbar */}
-      <nav className="flex justify-between items-center p-0.5 bg-white shadow-md">
-        <div className="flex items-center">
-          <img src={Logo} alt="QuickCash Logo" className="w-20 h-20 mr-3" />
-          <h1 className="text-3xl font-bold text-gray-800">QuickCash</h1>
-        </div>
-        <div className="space-x-4">
-          <Link
-            to="/login"
-            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition duration-200"
-          >
-            Sign In
-          </Link>
-          <Link
-            to="/login"
-            className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded transition duration-200"
-          >
-            Sign In
-          </Link>
-
-          {/* "px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded transition duration-200" */}
+      <nav className="container mx-auto px-6 py-4">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center">
+            <img src={Logo} alt="QuickCash Logo" className="w-12 h-12" />
+            <span className="ml-2 text-2xl font-bold text-[#ffd741]">
+              QuickCash
+            </span>
+          </div>
+          <div className="space-x-4">
+            <Link
+              to="/login"
+              className="px-4 py-2 text-[#ffd741] hover:text-[#a5cf20] transition-colors"
+            >
+              Sign In
+            </Link>
+            <Link
+              to="/signup"
+              className="px-4 py-2 bg-[#259518] text-white rounded-lg hover:bg-[#a5cf20] transition-all duration-200"
+            >
+              Sign Up
+            </Link>
+          </div>
         </div>
       </nav>
 
