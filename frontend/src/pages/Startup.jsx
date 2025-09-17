@@ -8,6 +8,7 @@ export default function StartUp() {
 			<div className="flex gap-4">
 				<a href="/signup" className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Sign Up</a>
 				<a href="/login" className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300">Log In</a>
+                <a href="/guest" className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300">Use as a Guest</a>
 			</div>
 		</div>
 	);
